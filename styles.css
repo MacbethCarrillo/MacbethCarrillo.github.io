@@ -5,13 +5,12 @@ body {
 
 header {
     display: flex;
-    background-color: #10216f;
+    justify-content: center; /* Centramos todo el contenido horizontalmente */
+    align-items: center;
+    background-color: #10216f; 
     color: white;
     padding: 20px;
     font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     position: relative;
     font-family: 'Trebuchet MS', regular;
     font-weight: regular;
@@ -20,21 +19,18 @@ header {
 
 .logo {
     height: 60px;
-    margin-left: 1px;
-    margin-right: 55px;
+    margin-right: 40px; /* Espaciado entre logo y menú */
 }
 
 .nav-container {
     display: flex;
     align-items: center;
-    gap: 30px;
-    margin-right: auto;
-    position: relative;
+    gap: 20px; /* Espaciado de 20px entre los botones */
 }
 
 nav {
     display: flex;
-    gap: 50px;
+    gap: 40px; /* Espaciado de 20px entre los enlaces del menú */
 }
 
 nav a {
@@ -43,52 +39,54 @@ nav a {
     font-weight: regular;
 }
 
+
 .button {
     background-color: white;
     color: #10216f;
     border: none;
-    padding: 15px 45px;
+    padding: 16px 45px;
     font-size: 20px;
     cursor: pointer;
     border-radius: 10px;
-    margin-right: auto;
     font-weight: bold;
     font-family: 'Trebuchet MS';
     transition: background-color 0.3s, border-color 0.3s;
+    margin-left: 40px; /* Aseguramos un margen izquierdo para separar del menú */
 }
+
 
 .button:hover {
-    background-color: #183196;
-    color:white;
-    border: 2px solid black;
+    background-color: #7dd557; /*183196 */
+    color: #10216f;
 }
 
-.menu-btn { /*menu para celular*/
+/* Estilos para el botón del menú (solo visible en pantallas pequeñas) */
+.menu-btn {
     display: none;
     background-color: white;
     color: #10216f;
     font-size: 26px;
     padding: 3px 10px;
     cursor: pointer;
-    border-radius: 6px; 
+    border-radius: 6px; /* Menos redondeado */
     border: 2px solid #10216f;
-    transition: none;
+    transition: none; /* Sin efecto de hover */
 }
 
 .menu-btn::before {
-    content: "☰"; 
+    content: "☰"; /* Ícono de menú por defecto */
 }
 
 .menu-btn.active::before {
-    content: "✖"; 
+    content: "✖"; /* Ícono de cerrar al activar */
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
     header {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding: 10px 20px;
+        padding: 6px 20px;
     }
 
     .logo {
@@ -115,7 +113,7 @@ nav a {
         display: flex;
         flex-direction: column;
         gap: 15px;
-        max-height: 220px; 
+        max-height: 254px; /* Incrementamos para incluir el nuevo enlace */
     }
 
     .menu-btn.active {
@@ -124,7 +122,7 @@ nav a {
 
     .menu-btn {
         display: block;
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     .button {
@@ -134,22 +132,51 @@ nav a {
     nav {
         display: flex;
         flex-direction: column;
-        gap: 0; 
+        gap: 0;
         width: 100%;
-        padding: 10px;
     }
 
     nav a {
         color: #7dd557;
         text-align: center;
-        padding: 10px 0; 
-        border-top: 1px solid #ffffff60;
+        padding: 10px 0;
+        border-top: 1px solid #ffffff60; 
     }
 
     nav a:first-child {
         border-top: none;
     }
+
+    nav a:last-child {
+        border-bottom: 1px solid #ffffff60;
+    }
+
+    /* Agregamos el nuevo enlace de Rastreo solo para pantallas pequeñas */
+    nav a.rastreo {
+        color: #7dd557;
+        text-align: center;
+        padding: 10px 0;
+        border-top: 1px solid #ffffff60;
+    }
 }
+
+/* Ocultar el enlace de Rastreo en pantallas grandes */
+@media (min-width: 1100px) {
+    .rastreo {
+        display: none;
+    }
+}
+
+/* Mostrar el enlace de Rastreo en pantallas pequeñas */
+@media (max-width: 1100px) {
+    .rastreo {
+        display: block;
+    }
+}
+
+
+
+
 /* ---------------------------------------DIV CARRUSEL DE IMAGENES--------------------------------- */
 
 .carousel {
@@ -157,19 +184,43 @@ nav a {
     width: 100%;
     height: auto;
     overflow: hidden;
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .carousel-images {
     display: flex;
     transition: transform 0.5s ease-in-out;
     width: 300%;
+    user-select: none; /* Evita que el contenido se seleccione */
+}
+
+.carousel-image-container {
+    position: relative;
+    width: 33.33%; /* Ajusta según el número de imágenes */
 }
 
 .carousel-images img {
-    width: 33.33%;
+    width: 100%; /* Asegúrate de que la imagen ocupe todo el contenedor */
     height: auto;
     display: block;
+    pointer-events: none; /* Evita que el puntero interactúe con la imagen */
+    user-select: none; /* Evita que el contenido se seleccione */
+    -webkit-user-select: none; /* Evita la selección en Safari */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    -moz-user-select: none; /* Firefox */
+}
+
+.carousel-text {
+    position: absolute;
+    top: 50%;
+    left: 140px; /* Ajusta según sea necesario */
+    transform: translateY(-50%);
+    color: white;
+    font-size: 5em; /* Ajusta el tamaño de fuente según sea necesario */
+    font-family: 'Trebuchet MS', sans-serif; /* Fuente personalizada */
+    font-weight: bold; /* Texto en negrita */
+    pointer-events: none; /* Evita la interacción con el texto */
+    user-select: none; /* Evita que el texto se seleccione */
 }
 
 .carousel-dots {
@@ -192,21 +243,61 @@ nav a {
 }
 
 .carousel-dots button.active {
-    background-color: #ffffff; 
+    background-color: #ffffff;
 }
 
-@media(max-width: 400px){
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media(max-width: 1100px) {
+    .carousel-btn {
+        display: none;
+    }
+
+    .carousel-images img {
+        height: 400px;
+    }
 
     .carousel-dots {
         bottom: 20px;
+
     }
 
     .carousel-dots button {
-        width: 5px;
+        width: 12px;
         height: 12px;
     }
 
+    .carousel-text {
+        text-align: center;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centrar vertical y horizontalmente */
+        font-size: 2.5em; /* Tamaño de fuente grande para pantallas pequeñas */
+    }
 }
+
 
 /* ---------------------------------------DIV NOSOTROS--------------------------------- */
 .nosotros {
@@ -247,7 +338,6 @@ nav a {
     margin: 0; 
 }
 
-
 .ver-mas-btn {
     display: block;
     margin: 20px auto; 
@@ -271,15 +361,29 @@ nav a {
     transform: translateY(-2px);
 }
 
-@media (max-width: 1000px) {
+/* Ajustes para pantallas grandes (1500px en adelante) */
+@media (min-width: 1101px) {
+    .nosotros {
+        align-items: flex-start;
+    }
+
+    .texto-nosotros {
+        width: 100%; /* El texto ahora ocupa el 40% del espacio */
+    }
+
+    .imagen-nosotros {
+        width: 50%; /* La imagen ocupa el 60% del espacio */
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 1100px) {
     .ver-mas-btn {
         width: 50%; 
         padding: 15px; 
         font-size: 16px; 
     }
-}
 
-@media (max-width: 1000px) {
     .nosotros {
         flex-direction: column;
         margin: 0; 
@@ -290,10 +394,12 @@ nav a {
         padding: 20px;
         text-align: center;
     }
-    .texto-nosotros p{
+
+    .texto-nosotros p {
         text-align: center;
         font-size: 1em;
     }
+
     .imagen-nosotros {
         width: 100%;
     }
@@ -302,6 +408,7 @@ nav a {
         max-width: 100%;
     }
 }
+
 
 /* ---------------------------------------DIV Servicios--------------------------------- */
 .servicios {
@@ -523,7 +630,7 @@ nav a {
     height: auto;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
     .sucursales {
         flex-direction: column;
         text-align: center;
@@ -612,7 +719,7 @@ nav a {
     }    
 }
 
-@media (min-width: 400px) and (max-width: 1000px) {
+@media (min-width: 400px) and (max-width: 1100px) {
     #sucursales-select {
         padding: 10px 120px; 
     }
@@ -803,4 +910,3 @@ nav a {
 .footer-link:hover {
     color: white;
 }
-
