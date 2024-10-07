@@ -911,6 +911,11 @@ nav a {
         font-size: 2em;
     }
 
+    .informacion-contacto p{
+        text-align: center;
+        font-size: 1em;
+    }
+
     .redes-sociales {
         justify-content: center;
     }
