@@ -19,9 +19,27 @@ header {
     z-index: 10;
 }
 
+a {
+    -webkit-tap-highlight-color: transparent; /* Quita el highlight en navegadores basados en WebKit */
+}
+
 .logo {
     height: 60px;
     margin-right: 40px; /* Espaciado entre logo y menú */
+    -webkit-tap-highlight-color: transparent; /* Quita el highlight en navegadores basados en WebKit */
+    outline: none; /* Evita los bordes de selección */
+    -webkit-user-select: none; /* Evita la selección de la imagen en móviles */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none; /* Evita bordes en el enlace o imagen */
+    border: none; /* Asegura que no haya bordes visibles */
+}
+
+a:active,
+a:focus {
+    outline: none;
+    border: none;
 }
 
 .nav-container {
@@ -38,7 +56,14 @@ nav {
 nav a {
     color: #7dd557;
     text-decoration: none;
-    font-weight: regular;
+    font-weight: normal;
+    transition: background-color 0.3s; /* Suavizar el cambio de color de fondo */
+}
+
+nav a.active {
+    color:white; /* Color de texto */
+    font-weight: bold; /* Texto en negrita */
+    border-radius: 5px; /* Esquinas redondeadas */
 }
 
 
@@ -73,6 +98,18 @@ nav a {
     border-radius: 6px; /* Menos redondeado */
     border: 2px solid #10216f;
     transition: none; /* Sin efecto de hover */
+    outline: none; /* Evita borde de enfoque al hacer clic */
+    -webkit-tap-highlight-color: transparent; /* Elimina el highlight en dispositivos móviles */
+    -webkit-user-select: none; /* Evita que se seleccione el botón */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.menu-btn:active,
+.menu-btn:focus {
+    outline: none; /* Asegura que no aparezca un borde de selección */
+    border: none;
 }
 
 .menu-btn::before {
@@ -143,6 +180,13 @@ nav a {
         text-align: center;
         padding: 10px 0;
         border-top: 1px solid #ffffff60; 
+    }
+
+    nav a.active {
+        background-color: white; /* Fondo blanco cuando el enlace está activo */
+        color: #10216f; /* Color de texto */
+        font-weight: bold; /* Texto en negrita */
+        border-radius: 5px; /* Esquinas redondeadas */
     }
 
     nav a:first-child {
