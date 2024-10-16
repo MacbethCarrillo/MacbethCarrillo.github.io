@@ -1,3 +1,20 @@
+/* -----------------------LETRA BLANCA EN BARRA DE NAVEGACION------------------------*/ 
+// Obtener el nombre del archivo actual (sin el directorio ni el dominio)
+const currentPage = window.location.pathname.split('/').pop();
+
+// Obtener todos los enlaces de navegación
+const menuLinks = document.querySelectorAll('nav a');
+
+// Iterar sobre los enlaces para agregar la clase 'active' al que coincida con la URL actual
+menuLinks.forEach(link => {
+    // Comparar el atributo href con la página actual
+    if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+    }
+});
+
+/* -----------------------CARRUSEL DE IMAGENES EN INDEX------------------------*/ 
+
 let currentIndex = 0;
 let autoSlideInterval;
 const slideWidth = 100 / document.querySelectorAll('.carousel-images img').length; // Ancho dinámico de cada imagen en porcentaje
