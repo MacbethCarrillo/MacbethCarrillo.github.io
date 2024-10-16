@@ -52,15 +52,26 @@
 
 @media (max-width: 400px) {
 
+    .nosotros {
+        background-color: #102171;
+        width: 100%; /* Asegura que la imagen ocupe el 100% del ancho */
+        height: 700px; /* Ajusta manualmente la altura en pantallas pequeñas */
+    }
+    .nosotros img {
+        width: 0;
+    }
+
     .nosotros-txt {
+        color: white;
         top: 15%;
-        left: 10%;
+        left: 15%;
         right: auto;
         text-align: center;
-        font-size: 3.5em; /* Tamaño fijo para pantallas pequeñas */
+        font-size: 3em; /* Tamaño fijo para pantallas pequeñas */
     }
 
     .nosotros-texto {
+        color: white;
         left: 5%;
         right:5%;
         text-align: center;
@@ -71,7 +82,7 @@
     }
 }
 
-@media(min-width:401px) and (max-width: 700px) {
+@media(min-width:400px) and (max-width: 550px) {
 
     .nosotros-txt {
         font-size: 3em; /* Tamaño fijo para pantallas pequeñas */
@@ -165,7 +176,7 @@
 
     .imagen-con-texto img {
         width: 100%; /* Asegura que la imagen ocupe el 100% del ancho */
-        height: 600px; /* Ajusta manualmente la altura en pantallas pequeñas */
+        height: 405px; /* Ajusta manualmente la altura en pantallas pequeñas */
         margin: 0; /* Elimina cualquier margen */
         padding: 0; /* Elimina cualquier padding */
     }
@@ -178,7 +189,7 @@
 
     .texto-sobre-imagen {
         text-align: center;
-        font-size: 2em; /* Tamaño fijo para el texto en pantallas pequeñas */
+        font-size: 1.5em; /* Tamaño fijo para el texto en pantallas pequeñas */
         width: 90%;
         padding: 15px;
     }
@@ -215,7 +226,7 @@
 .valores {
     display: flex;
     justify-content: flex-start; 
-    background-color: #10216f;
+    background-color:#102171;
     padding: 10px;
     color: white;
     flex-wrap: wrap; /* Para permitir que los elementos se ajusten a la siguiente línea */
@@ -273,5 +284,111 @@
     .valor-item g {
 
         font-size: 1em;
+    }
+}
+
+
+.propuesta {
+    position: relative; /* Posiciona el cuadro negro sobre la imagen */
+    width: 100%;
+    height: auto;
+}
+
+.propuesta img {    
+    width: 100%; /* Asegura que la imagen siempre ocupe el 100% del ancho */
+    height: auto; /* Mantiene la proporción de la imagen */
+    min-height: 100%; /* Asegura que la imagen cubra al menos el 100% de la altura */
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin distorsionarse */
+    display: block; 
+    pointer-events: none; 
+    user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    -moz-user-select: none; 
+}
+
+.propuesta-texto {
+    position: absolute;
+    text-align: left;
+    top: 12%;
+    left: 16%; 
+    right: 50%;
+    color:white;
+    font-size: 5vw; /* Tamaño dinámico para pantallas grandes */
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+.propuesta-txt {
+    position: absolute;
+    text-align: left;
+    top: 36%;
+    left: 3%; 
+    right: 50%;
+    color:white;
+    font-size: 3vw; /* Tamaño dinámico para pantallas grandes */
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+.propuesta-txt p{
+    font-size: 0%; /* Tamaño dinámico para pantallas grandes */
+}
+
+
+@media(min-width:1400px) {
+
+    .propuesta-texto {
+        top: 12%;
+        left: 16%; 
+        right: 50%;
+    }
+    
+    .propuesta-txt {
+        top: 35%;
+        left: 3%; 
+        right: 50%;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .propuesta {
+        background-color: #102171;
+        width: 100%; /* Asegura que la imagen ocupe el 100% del ancho */
+        height: 700px; /* Ajusta manualmente la altura en pantallas pequeñas */
+    }
+    .propuesta img {
+        width: 0;
+    }
+
+    .propuesta-texto {
+        background-color: rgba(125, 213, 87, 1); /* Fondo con opacidad */
+        top: 5%;
+        left: auto;
+        right: auto;
+        text-align: center;
+        font-size: 2.5em; /* Tamaño fijo para pantallas pequeñas */
+    }
+    
+    .propuesta-txt {
+        top: 25%;
+        left: auto;
+        right: auto;
+        text-align: center;
+        font-size: 2em; /* Tamaño fijo para pantallas pequeñas */
+    }
+    .propuesta-txt p{
+        font-size: 1em; /* Tamaño dinámico para pantallas grandes */
+    }
+}
+
+@media (min-width:401px)and(max-width: 1500px) {
+    .propuesta {
+        height: auto; /* Cambia a auto para evitar espacios en la parte inferior */
+    }
+    .propuesta img {
+        height: 100%; /* Ajusta la altura de la imagen al contenedor */
+        min-height: auto; /* Desactiva la restricción de altura mínima en pantallas pequeñas */
     }
 }
