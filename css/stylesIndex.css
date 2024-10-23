@@ -415,8 +415,6 @@
     }
     
 }
-
-
 /* ---------------------------------------DIV Sucursales--------------------------------- */
 .div-sucursales {
     background-color: white;
@@ -438,78 +436,58 @@
     background-color: white;
     padding: 50px;
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    flex-direction: column; /* Alinea verticalmente en pantallas pequeñas */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     margin-top: 0;
 }
 
-.texto-sucursales {
-    flex: 1;
-    text-align: left;
+@media (min-width: 768px) {
+    .sucursales {
+        flex-direction: row; /* Alinea en fila para pantallas más grandes */
+        justify-content: space-between;
+    }
 }
 
-.texto-sucursales h4 {
-    margin-left: 40px;
-    margin-top: 40px;
-    color: #10216f;
-}
-
-.texto-sucursales ul {
-    list-style-type: none;
-    padding: 0;
-    color: #10216f;
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-left: 80px;
-}
-
-
-.imagen-sucursal {
+.imagen-sucursal, .mapa-sucursales {
     flex: 1;
     display: flex;
-    justify-content: center; /* Centra la imagen horizontalmente */
+    justify-content: center;
     align-items: center;
-    padding-left: 0;
+    flex-direction: column;
+    text-align: center;
 }
 
 .imagen-sucursal img {
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
 }
 
-@media (max-width: 1100px) {
-    .sucursales {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .div-sucursales {
-        font-size: 1.8em; 
-        padding: 15px 5px;
-    }
+@media(max-width:450px){
 
     .imagen-sucursal img {
-        max-width: 100%;
-        margin-bottom: 60px;
+        margin-bottom: 50px;
     }
 
-    .texto-sucursales p {
-        text-align: center;
-        font-size: 1em;
-        font-weight: center;
-    }
 }
-
 
 .mapa-sucursales {
     padding: 10px;
-    margin-right: 10px;
     border: 2px solid #d3d3d3; 
     border-radius: 5px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    max-width: 100%; 
+    max-width: 100%;
 }
 
+/* Contenedor para el label y el select */
+.label-select-container {
+    display: flex;
+    justify-content: center; /* Asegura que ambos elementos estén alineados a la izquierda */
+    align-items: center;
+    gap: 10px; /* Espacio entre el label y el select */
+    margin-bottom: 10px; /* Espacio entre el label/select y el mapa */
+}
 
 .mapa-sucursales label {
     color: #10216f; 
@@ -517,21 +495,25 @@
     font-family: 'Trebuchet MS', sans-serif;
 }
 
-
 #sucursales-select {
     display: block;
-    margin: 0 auto 10px auto;
-    padding: 10px 200px;  
+    width: 100%; /* Ancho total para pantallas chicas */
+    max-width: 600px; /* Límite del ancho para pantallas grandes */
+    margin-bottom: 10px;
+    padding: 10px;
     font-size: 1em;
     font-weight: bold;
-    color:white;
+    color: white;
     background-color: #10216f;
     border: 2px solid transparent;
     border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
+/* Mapa */
 .map-container {
+    width: 100%;
     text-align: center;
 }
 
@@ -541,66 +523,6 @@
     height: 450px;
     border: 0;
 }
-
-
-@media(min-width:1200px) and (max-width:1500px){
-
-    .mapa-sucursales {
-        padding: 10px;
-        margin-right: 20px;
-        border: 2px solid #d3d3d3; 
-        border-radius: 5px; 
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-        max-width: 90%; 
-    }
-}
-
-@media(min-width:1501px) and (max-width:2000px){
-
-    .mapa-sucursales {
-        padding: 10px;
-        margin-right: 150px;
-        border: 2px solid #d3d3d3; 
-        border-radius: 5px; 
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-        max-width: 200%; 
-    }
-}
-
-
-@media(max-width: 400px){
-
-    .mapa-sucursales {
-        width: 95%;
-    }
-
-    #sucursales-select {
-        display: block;
-        margin: 0 auto 10px auto;
-        font-size: 1em;
-        font-weight: bold;
-        color:white;
-        background-color: #10216f;
-        border: 2px solid transparent; 
-        border-radius: 5px; 
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-}
-@media (max-width: 400px) {
-    #sucursales-select {
-        padding: 10px 90px; 
-    }    
-}
-
-@media (min-width: 400px) and (max-width: 1100px) {
-    #sucursales-select {
-        padding: 10px 120px; 
-    }
-    .mapa-sucursales {
-        width: 110%; 
-    }
-}
-
 /* ---------------------------------------DIV Contacto--------------------------------- */ 
 
 
