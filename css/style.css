@@ -303,6 +303,6 @@ nav a.active {
 @media(max-width:500px){
 
     .footer {
-        font-size: 1em;
+        font-size: 0.9em;
     }
 }
